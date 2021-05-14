@@ -8,8 +8,37 @@
 import Foundation
 import Alamofire
 
-func retrieveUserInfo(){
+class UserRequest{
+
+    func retrieveUserInfo(_ compeletion: @escaping (Result<User, AFError>)-> Void){
     let route = userRouter.usersInfo
     
-    AF.request(route)
+    AF.request(route).responseDecodable { (response: DataResponse<User, AFError>) in
+        switch response.result{
+        
+        case .success(let user):
+            compeletion(.success(user))
+        case .failure(let error):
+            compeletion(.failure(error))
+        }
+    }
+}
+    
+    func retrieveRepos(_ compeletion: @escaping (Result<[Repo],AFError>)->Void){
+        let reposRoute = userRouter.userRepos
+        
+        AF.request(reposRoute).responseDecodable { (response: DataResponse<[Repo], AFError>) in
+            
+            switch response.result{
+            
+            case .success(let repos):
+                compeletion(.success(repos))
+            case .failure(let error):
+                print(error)
+                compeletion(.failure(error))
+            }
+        }
+        
+    }
+    
 }
