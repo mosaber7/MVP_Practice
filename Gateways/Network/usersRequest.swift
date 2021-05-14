@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import Alamofire
+
+func retrieveUserInfo(){
+    let route = userRouter.usersInfo
+    
+    AF.request(route)
+}

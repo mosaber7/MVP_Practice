@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import Alamofire
 
 
-enum userRouter{
+enum userRouter: URLRequestConvertible{
+    
+    
     static let userBaseURL = "https://api.github.com/users/KarimEbrahemAbdelaziz"
     
     case usersInfo
@@ -31,6 +34,14 @@ enum userRouter{
             return nil
         }
     }
+    var httpMethod: HTTPMethod {
+        switch self {
+        case .usersInfo:
+            return .get
+        case .userRepos:
+            return .get
+        }
+    }
     
     var headers: [String: String]{
         switch self {
@@ -39,6 +50,27 @@ enum userRouter{
         case .userRepos:
             return [:]
         }
+    }
+    var encoding: ParameterEncoding{
+        switch self {
+        case .userRepos:
+            return JSONEncoding.default
+        case .usersInfo:
+            return JSONEncoding.default
+        }
+    }
+    
+    func asURLRequest()throws -> URLRequest{
+        let urlstring = userRouter.userBaseURL + self.path
+        
+        let url = URL(string: urlstring)!
+        var request = URLRequest(url: url)
+        request.method = self.httpMethod
+        request.headers = HTTPHeaders(headers)
+        
+        return try! encoding.encode(request, with: parameters)
+        
+        
     }
     
     
