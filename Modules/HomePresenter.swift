@@ -10,6 +10,7 @@ import Foundation
 protocol HomePresenterProtocol {
     var reposCount: Int {get}
     var userName: String {get}
+    var avatarURL: URL{get}
     func repo(at index: Int)-> Repo
     func retrieveRepos()
     func retrieveUser()
@@ -17,15 +18,6 @@ protocol HomePresenterProtocol {
 }
 
 class HomePresenter:HomePresenterProtocol{
-    var userName: String{
-        if let user = user {
-            return user.name
-        }
-        return "Errror"
-        
-    }
-    
-    
 
     weak var view: HomeViewProtocol?
     
@@ -36,12 +28,18 @@ class HomePresenter:HomePresenterProtocol{
     }
     
     var repos = [Repo]()
-    var user: User?
+    var user: User!
+    var avatarURL: URL{
+        URL(string: user.avatar)!
+    }
     
     var reposCount: Int{
         return repos.count
     }
-    
+    var userName: String{
+        user.name
+        
+    }
     func repo(at index: Int) -> Repo {
         return repos[index]
     }
@@ -63,6 +61,7 @@ class HomePresenter:HomePresenterProtocol{
             switch result{
             case .success(let user):
                 self.user = user
+                self.view?.setupUserData()
             case .failure(let error):
                 fatalError("error fetching user data \(error)")
             }

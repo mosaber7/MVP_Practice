@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol HomeViewProtocol: AnyObject{
     func reloadTableView()
+    func setupUserData()
     
 }
 
@@ -25,7 +27,6 @@ class HomeViewControlle: UIViewController {
         super.viewDidLoad()
         registerRepoCell()
         presenter = HomePresenter(view: self)
-configLabels()
         
     }
 }
@@ -60,6 +61,12 @@ extension HomeViewControlle: UITableViewDelegate, UITableViewDataSource{
 // MARK: -
 
 extension HomeViewControlle: HomeViewProtocol{
+    func setupUserData() {
+        nameLabel.text = presenter?.userName
+        ImageView.kf.setImage(with: presenter?.avatarURL)
+        
+    }
+    
     
     func reloadTableView() {
         self.reposTableView.reloadData()

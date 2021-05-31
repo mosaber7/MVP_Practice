@@ -28,14 +28,14 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="189"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bJk-WH-1GJ">
-                                        <rect key="frame" x="167" y="40" width="80" height="80"/>
+                                        <rect key="frame" x="127" y="16" width="160" height="120"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="3D8-o7-7GN"/>
-                                            <constraint firstAttribute="width" constant="80" id="pf2-Gy-llX"/>
+                                            <constraint firstAttribute="height" constant="120" id="3D8-o7-7GN"/>
+                                            <constraint firstAttribute="width" constant="160" id="pf2-Gy-llX"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75K-cG-LoO">
-                                        <rect key="frame" x="182.5" y="156" width="49" height="21"/>
+                                        <rect key="frame" x="182.5" y="152" width="49" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -43,9 +43,9 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="75K-cG-LoO" firstAttribute="top" secondItem="bJk-WH-1GJ" secondAttribute="bottom" constant="36" id="ASV-xs-pEY"/>
+                                    <constraint firstItem="75K-cG-LoO" firstAttribute="top" secondItem="bJk-WH-1GJ" secondAttribute="bottom" constant="16" id="ASV-xs-pEY"/>
                                     <constraint firstItem="bJk-WH-1GJ" firstAttribute="centerX" secondItem="ow0-7F-zls" secondAttribute="centerX" id="GzT-Lz-bJ0"/>
-                                    <constraint firstItem="bJk-WH-1GJ" firstAttribute="top" secondItem="ow0-7F-zls" secondAttribute="top" constant="40" id="YBT-bJ-uke"/>
+                                    <constraint firstItem="bJk-WH-1GJ" firstAttribute="top" secondItem="ow0-7F-zls" secondAttribute="top" constant="16" id="YBT-bJ-uke"/>
                                     <constraint firstItem="75K-cG-LoO" firstAttribute="centerX" secondItem="ow0-7F-zls" secondAttribute="centerX" id="qks-ed-tIG"/>
                                 </constraints>
                             </view>
