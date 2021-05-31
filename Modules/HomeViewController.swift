@@ -10,9 +10,9 @@ import UIKit
 class HomeViewControlle: UIViewController {
 
     var repos: [Repo] = [Repo]()
-    @IBOutlet weak var ImageView: UIImageView!
-    @IBOutlet weak var starsCountLabel: UILabel!
-    @IBOutlet weak var reposTableView: UITableView!
+    @IBOutlet private weak var ImageView: UIImageView!
+    @IBOutlet private weak var starsCountLabel: UILabel!
+    @IBOutlet private weak var reposTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
