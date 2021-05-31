@@ -9,8 +9,11 @@ import Foundation
 
 struct User: Decodable{
     var name: String
-    var followers: Int
+    var avatar: String
     
-
+    enum CodingKeys: String, CodingKey {
+        case name
+        case avatar = "avatar_url"
+    }
     
 }

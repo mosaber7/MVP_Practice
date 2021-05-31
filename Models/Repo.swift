@@ -9,10 +9,10 @@ import Foundation
 
 struct Repo:Decodable{
     var name: String
-    var forksCount: Int
+    var starsCount: Int
     
-    enum codingKeys:String, CodingKey{
+    enum CodingKeys:String, CodingKey{
         case name
-        case forksCount = "forks_count"
+        case starsCount = "stargazers_count"
     }
 }

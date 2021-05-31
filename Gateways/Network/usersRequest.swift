@@ -10,7 +10,7 @@ import Alamofire
 
 class UserRequest{
 
-    func retrieveUserInfo(_ compeletion: @escaping (Result<User, AFError>)-> Void){
+   static func retrieveUserInfo(_ compeletion: @escaping (Result<User, AFError>)-> Void){
     let route = userRouter.usersInfo
     
     AF.request(route).responseDecodable { (response: DataResponse<User, AFError>) in
@@ -24,7 +24,7 @@ class UserRequest{
     }
 }
     
-    func retrieveRepos(_ compeletion: @escaping (Result<[Repo],AFError>)->Void){
+ static func retrieveRepos(_ compeletion: @escaping (Result<[Repo],AFError>)->Void){
         let reposRoute = userRouter.userRepos
         
         AF.request(reposRoute).responseDecodable { (response: DataResponse<[Repo], AFError>) in

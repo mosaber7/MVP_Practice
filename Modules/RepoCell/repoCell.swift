@@ -17,7 +17,10 @@ class repoCell: UITableViewCell {
         // Initialization code
     }
 
-   
+    func configureCell(with repo: Repo){
+        self.nameLabel.text = "Repo Name: \(repo.name)"
+        self.forkCountLabel.text = "stars Count \(repo.starsCount)"
+    }
     
     
 }

@@ -7,52 +7,63 @@
 
 import UIKit
 
+protocol HomeViewProtocol: AnyObject{
+    func reloadTableView()
+    
+}
+
 class HomeViewControlle: UIViewController {
 
-    var repos: [Repo] = [Repo]()
     @IBOutlet private weak var ImageView: UIImageView!
-    @IBOutlet private weak var starsCountLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var reposTableView: UITableView!
     
+    var presenter: HomePresenterProtocol?
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         registerRepoCell()
+        presenter = HomePresenter(view: self)
+configLabels()
         
-        let rer = UserRequest()
-        rer.retrieveUserInfo { (response) in
-            switch response{
-            
-            case .success(let info):
-                print(info)
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
-
-
 }
 
-//MARK: -
+//MARK: - table view setup
 extension HomeViewControlle{
     private func registerRepoCell(){
         let repoNib = UINib(nibName: "repoCell", bundle: nil)
-        
         reposTableView.register(repoNib, forCellReuseIdentifier: "repoCell")
         
+    }
+    func configLabels(){
+        nameLabel.text = presenter?.userName
+
     }
 }
 
 extension HomeViewControlle: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        return presenter?.reposCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = reposTableView.dequeueReusableCell(withIdentifier: "repoCell") as! repoCell
+        let repo = presenter?.repo(at: indexPath.row)
+        cell.configureCell(with: repo!)
+        
         return cell
     }
+}
+
+// MARK: -
+
+extension HomeViewControlle: HomeViewProtocol{
     
+    func reloadTableView() {
+        self.reposTableView.reloadData()
+    }
     
 }
 

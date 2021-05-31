@@ -65,8 +65,8 @@
                     </view>
                     <connections>
                         <outlet property="ImageView" destination="bJk-WH-1GJ" id="li3-1X-Whq"/>
+                        <outlet property="nameLabel" destination="75K-cG-LoO" id="nWW-6X-XOv"/>
                         <outlet property="reposTableView" destination="tQy-vd-IeZ" id="puC-E3-hoy"/>
-                        <outlet property="starsCountLabel" destination="75K-cG-LoO" id="nWW-6X-XOv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

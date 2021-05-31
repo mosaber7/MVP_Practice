@@ -22,7 +22,7 @@ enum userRouter: URLRequestConvertible{
         case .usersInfo:
             return ""
         case .userRepos:
-            return "repos"
+            return "/repos"
         }
     }
     
