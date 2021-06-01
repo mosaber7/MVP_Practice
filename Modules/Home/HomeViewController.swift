@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-protocol HomeViewProtocol: AnyObject{
+protocol HomeViewProtocol: AnyObject, NavigationRouter{
     func reloadTableView()
     func setupUserData()
     
@@ -25,6 +25,8 @@ class HomeViewControlle: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.reposTableView.delegate = self
+        self.reposTableView.dataSource = self
         registerRepoCell()
         presenter = HomePresenter(view: self)
         
@@ -55,6 +57,9 @@ extension HomeViewControlle: UITableViewDelegate, UITableViewDataSource{
         cell.configureCell(with: repo!)
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter?.selectRepo(at: indexPath.row)
     }
 }
 

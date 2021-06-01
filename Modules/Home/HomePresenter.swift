@@ -12,12 +12,15 @@ protocol HomePresenterProtocol {
     var userName: String {get}
     var avatarURL: URL{get}
     func repo(at index: Int)-> Repo
+    func selectRepo(at index: Int)
     func retrieveRepos()
     func retrieveUser()
     
 }
 
 class HomePresenter:HomePresenterProtocol{
+    
+    
 
     weak var view: HomeViewProtocol?
     
@@ -67,7 +70,11 @@ class HomePresenter:HomePresenterProtocol{
             }
         }
     }
-    
+    func selectRepo(at index: Int) {
+        let repo = repos[index]
+        let route = HomeRoutes.description(repo)
+        self.view?.navigate(to: route)
+    }
     
     }
     

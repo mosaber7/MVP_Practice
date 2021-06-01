@@ -8,6 +8,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Description View Controller-->
+        <scene sceneID="9AC-tf-lgI">
+            <objects>
+                <viewController storyboardIdentifier="Description" id="jV9-tk-dxC" customClass="DescriptionViewController" customModule="GitHubUsersProject_MVP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QVK-NN-hDq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ViK-w7-Wbe">
+                                <rect key="frame" x="16" y="437.5" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KvF-YM-Lsi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ViK-w7-Wbe" firstAttribute="centerY" secondItem="QVK-NN-hDq" secondAttribute="centerY" id="haA-uo-cGD"/>
+                            <constraint firstItem="ViK-w7-Wbe" firstAttribute="leading" secondItem="KvF-YM-Lsi" secondAttribute="leading" constant="16" id="wnP-VA-vxT"/>
+                            <constraint firstItem="KvF-YM-Lsi" firstAttribute="trailing" secondItem="ViK-w7-Wbe" secondAttribute="trailing" constant="16" id="z0M-ID-kFg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descritionLabel" destination="ViK-w7-Wbe" id="UwY-4x-GBL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2mL-EH-gJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1012" y="-22"/>
+        </scene>
         <!--Home View Controlle-->
         <scene sceneID="tne-QT-ifu">
             <objects>
