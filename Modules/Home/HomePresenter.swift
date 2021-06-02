@@ -48,11 +48,11 @@ class HomePresenter:HomePresenterProtocol{
     }
     
     func retrieveRepos() {
-        UserRequest.retrieveRepos { (result) in
+        UserRequest.retrieveRepos {[weak self] (result) in
             switch result{
             case .success(let repos):
-                self.repos = repos
-                self.view?.reloadTableView()
+                self?.repos = repos
+                self?.view?.reloadTableView()
             case .failure(let error):
                 fatalError("fetching error : \(error)")
             }
@@ -60,11 +60,11 @@ class HomePresenter:HomePresenterProtocol{
     }
     
     func retrieveUser() {
-        UserRequest.retrieveUserInfo { (result) in
+        UserRequest.retrieveUserInfo { [weak self] (result) in
             switch result{
             case .success(let user):
-                self.user = user
-                self.view?.setupUserData()
+                self?.user = user
+                self?.view?.setupUserData()
             case .failure(let error):
                 fatalError("error fetching user data \(error)")
             }

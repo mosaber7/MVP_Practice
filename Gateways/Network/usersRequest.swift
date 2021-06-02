@@ -27,7 +27,7 @@ class UserRequest{
  static func retrieveRepos(_ compeletion: @escaping (Result<[Repo],AFError>)->Void){
         let reposRoute = userRouter.userRepos
         
-        AF.request(reposRoute).responseDecodable { (response: DataResponse<[Repo], AFError>) in
+        AF.request(reposRoute).responseDecodable {  (response: DataResponse<[Repo], AFError>) in
             
             switch response.result{
             
